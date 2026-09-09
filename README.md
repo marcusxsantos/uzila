@@ -250,27 +250,18 @@ Ela ajuda empresas a cuidar de cada conversa, fortalecer relacionamentos e trans
 A experiência do usuário deve ser emocional, elegante e inspiradora, fazendo com que o visitante pense:
 
 “É exatamente isso que acontece na minha empresa. Eu preciso da Uzila.”
-adicionar a logo
-
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://uzila-conversations-blossom.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/2e72fa13-56d6-407f-bd92-2d587d958309).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Para rodar o projeto localmente:
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
 npm run dev
+```
+
+Para gerar a build de produção:
+
+```sh
+npm run build
 ```

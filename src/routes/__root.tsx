@@ -10,9 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Toaster } from "@/components/ui/sonner";
-
 
 function NotFoundComponent() {
   return (
@@ -39,9 +37,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -90,14 +85,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Uzila — IA de atendimento no WhatsApp para sua empresa" },
       {
         property: "og:description",
-        content: "A Uzila é a inteligência artificial que recebe, organiza e acompanha cada conversa no WhatsApp: atendimento 24h, agendamento automático e follow-up para não perder oportunidades.",
+        content:
+          "A Uzila é a inteligência artificial que recebe, organiza e acompanha cada conversa no WhatsApp: atendimento 24h, agendamento automático e follow-up para não perder oportunidades.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Uzila — IA de atendimento no WhatsApp para sua empresa" },
-      { name: "twitter:description", content: "A Uzila é a inteligência artificial que recebe, organiza e acompanha cada conversa no WhatsApp: atendimento 24h, agendamento automático e follow-up para não perder oportunidades." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/76c57364-ab1e-46bb-949e-7a8d1c78a3e4/id-preview-e6ea3580--2e72fa13-56d6-407f-bd92-2d587d958309.lovable.app-1785795090098.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/76c57364-ab1e-46bb-949e-7a8d1c78a3e4/id-preview-e6ea3580--2e72fa13-56d6-407f-bd92-2d587d958309.lovable.app-1785795090098.png" },
+      {
+        name: "twitter:description",
+        content:
+          "A Uzila é a inteligência artificial que recebe, organiza e acompanha cada conversa no WhatsApp: atendimento 24h, agendamento automático e follow-up para não perder oportunidades.",
+      },
+      { property: "og:image", content: "/og-image.png" },
+      { name: "twitter:image", content: "/og-image.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -145,4 +145,3 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
-

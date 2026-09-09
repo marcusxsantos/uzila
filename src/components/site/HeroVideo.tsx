@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import heroPoster from "@/assets/hero-video-poster.jpg";
-import heroLoop from "@/assets/hero-loop.mp4.asset.json";
+import heroLoop from "@/assets/hero-loop.mp4";
 
 /**
  * Vídeo de fundo do hero: autoplay silencioso, com poster de fallback.
@@ -45,7 +45,7 @@ export function HeroVideo() {
           className="absolute inset-0 h-full w-full object-cover transition-opacity duration-1000"
           style={{ opacity: ready ? 1 : 0 }}
         >
-          <source src={heroLoop.url} type="video/mp4" />
+          <source src={heroLoop} type="video/mp4" />
         </video>
       ) : null}
 

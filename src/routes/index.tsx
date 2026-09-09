@@ -64,10 +64,10 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://uzila-conversations-blossom.lovable.app/" },
+      { property: "og:url", content: "https://uzila.com.br/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://uzila-conversations-blossom.lovable.app/" }],
+    links: [{ rel: "canonical", href: "https://uzila.com.br/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -75,7 +75,7 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "Organization",
           name: "Uzila",
-          url: "https://uzila-conversations-blossom.lovable.app/",
+          url: "https://uzila.com.br/",
           description:
             "Plataforma de inteligência artificial para atendimento, agendamento e relacionamento via WhatsApp.",
           email: "camila.melopaz@gmail.com",
@@ -442,7 +442,10 @@ function Home() {
         </section>
 
         {/* Faixa de segmentos */}
-        <section aria-label="Segmentos atendidos" className="border-y border-border bg-muted/40 py-5">
+        <section
+          aria-label="Segmentos atendidos"
+          className="border-y border-border bg-muted/40 py-5"
+        >
           <div className="relative overflow-hidden">
             <div className="animate-marquee flex w-max gap-10 whitespace-nowrap">
               {[...marquee, ...marquee].map((item, index) => (
@@ -461,7 +464,9 @@ function Home() {
         <section className="py-20 sm:py-28">
           <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
             <Reveal>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Cada conversa importa</h2>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Cada conversa importa
+              </h2>
               <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
                 Todos os dias, pessoas entram em contato pelo WhatsApp da sua empresa. Algumas estão
                 prontas para comprar, outras precisam de uma informação simples para decidir. O que
@@ -562,8 +567,8 @@ function Home() {
                     <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
                       Acreditamos que cada negócio carrega um propósito maior. Por isso criamos
                       tecnologia que multiplica: mais tempo para quem lidera, mais atenção para quem
-                      atende e mais oportunidades para quem sonha. Fazemos mais com menos — para
-                      que o impacto cresça sem que as pessoas se esgotem.
+                      atende e mais oportunidades para quem sonha. Fazemos mais com menos — para que
+                      o impacto cresça sem que as pessoas se esgotem.
                     </p>
                   </div>
                   <p className="relative inline-flex items-center gap-2 rounded-full bg-primary-soft px-4 py-1.5 text-xs font-semibold text-primary">
@@ -594,7 +599,9 @@ function Home() {
                       {item.number}
                     </span>
                     <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {item.text}
+                    </p>
                   </div>
                 </Reveal>
               ))}
@@ -620,7 +627,9 @@ function Home() {
                       Etapa {index + 1}
                     </p>
                     <h4 className="mt-2 text-lg font-semibold">{step.title}</h4>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.text}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {step.text}
+                    </p>
                   </div>
                 </Reveal>
               ))}
@@ -647,7 +656,9 @@ function Home() {
                       <item.icon className="h-6 w-6" />
                     </span>
                     <h3 className="mt-5 text-lg font-semibold">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {item.text}
+                    </p>
                   </div>
                 </Reveal>
               ))}
@@ -687,7 +698,9 @@ function Home() {
                       <item.icon className="h-6 w-6" />
                     </span>
                     <h3 className="mt-5 text-xl font-semibold">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {item.text}
+                    </p>
                     <ul className="mt-5 flex flex-wrap gap-2">
                       {item.bullets.map((bullet) => (
                         <li
@@ -724,7 +737,9 @@ function Home() {
                       <item.icon className="h-5 w-5" />
                     </span>
                     <h3 className="mt-5 text-lg font-semibold">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {item.text}
+                    </p>
                   </div>
                 </Reveal>
               ))}
@@ -749,7 +764,9 @@ function Home() {
                       <item.icon className="h-6 w-6" />
                     </span>
                     <h3 className="mt-5 text-lg font-semibold">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {item.text}
+                    </p>
                   </div>
                 </Reveal>
               ))}
@@ -810,7 +827,8 @@ function Home() {
                     {item.quote}
                   </blockquote>
                   <figcaption className="mt-5 text-sm text-muted-foreground">
-                    <span className="font-semibold text-foreground">{item.author}</span> — {item.role}
+                    <span className="font-semibold text-foreground">{item.author}</span> —{" "}
+                    {item.role}
                   </figcaption>
                 </figure>
               </Reveal>
@@ -852,7 +870,9 @@ function Home() {
         <section id="faq" className="scroll-mt-24 bg-muted/50 py-20 sm:py-28">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
             <Reveal className="text-center">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Perguntas frequentes</h2>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Perguntas frequentes
+              </h2>
               <p className="mt-4 text-muted-foreground">
                 Dúvidas comuns de quem está avaliando automatizar o atendimento no WhatsApp.
               </p>

@@ -62,7 +62,10 @@ function Privacidade() {
             <p className="mt-2">
               A qualquer momento você pode solicitar acesso, correção ou exclusão dos seus dados
               pelo e-mail{" "}
-              <a href={`mailto:${EMAIL}`} className="text-primary underline-offset-4 hover:underline">
+              <a
+                href={`mailto:${EMAIL}`}
+                className="text-primary underline-offset-4 hover:underline"
+              >
                 {EMAIL}
               </a>
               .
