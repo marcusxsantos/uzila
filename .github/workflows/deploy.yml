@@ -3,7 +3,7 @@ name: Deploy to VPS
 on:
   push:
     branches:
-      - main # Altere para master caso sua branch padrão seja master
+      - main
 
 jobs:
   deploy:
@@ -17,10 +17,13 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           port: ${{ secrets.VPS_PORT }}
+          timeout: 60s
+          command_timeout: 10m
           script: |
             export PATH=$PATH:/usr/bin:/usr/local/bin:$HOME/.nvm/versions/node/$(ls $HOME/.nvm/versions/node 2>/dev/null | tail -n 1)/bin
             cd /var/www/uzila.com.br
-            git pull origin main
+            git fetch origin main
+            git reset --hard origin/main
             npm install
             NITRO_PRESET=node-server npm run build
             PORT=3001 pm2 restart uzila-site --update-env
