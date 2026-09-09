@@ -78,7 +78,7 @@ export const Route = createFileRoute("/")({
           url: "https://uzila.com.br/",
           description:
             "Plataforma de inteligência artificial para atendimento, agendamento e relacionamento via WhatsApp.",
-          email: "camila.melopaz@gmail.com",
+          email: "contato@uzila.com.br",
           telephone: "+55 21 96650-3107",
           sameAs: ["https://instagram.com/uzila.ia"],
         }),

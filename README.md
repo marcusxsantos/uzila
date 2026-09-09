@@ -218,7 +218,7 @@ Exibir informações:
 
 WhatsApp: (21) 96650-3707
 
-E-mail: camila.melopaz@gmail.com
+E-mail: contato@uzila.com.br
 
 Adicionar botão flutuante do WhatsApp.
 
