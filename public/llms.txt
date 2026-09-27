@@ -1,0 +1,33 @@
+# Uzila
+
+> Uzila é uma plataforma de inteligência artificial brasileira especializada em atendimento humanizado, agendamento automático, qualificação de leads e follow-up contínuo via WhatsApp para pequenas, médias e grandes empresas.
+
+## Visão Geral
+A Uzila transforma o canal de WhatsApp da empresa em uma central de atendimento e vendas 24 horas por dia, 7 dias por semana. A plataforma conecta-se ao número de WhatsApp da empresa, responde dúvidas instantaneamente com tom humanizado, realiza agendamentos integrados à agenda, envia lembretes automáticos e reengaja contatos inativos para maximizar a retenção e as conversões.
+
+## Principais Recursos
+- **Atendimento 24/7 Humanizado**: Resposta imediata com inteligência artificial treinada nas regras e tom de voz do seu negócio.
+- **Agendamento Inteligente**: Consulta de horários disponíveis, marcação automática e sincronização com calendários (Google Agenda e outros).
+- **Lembretes e Confirmações Automáticas**: Redução de faltas (no-show) por meio de avisos prévios e confirmações interativas no WhatsApp.
+- **Follow-up e Reengajamento**: Recuperação de orçamentos parados e acompanhamento automático de leads sem resposta.
+- **Qualificação de Leads**: Coleta de informações essenciais antes de direcionar o contato para um atendente humano.
+- **Transbordo para Atendente Humano**: Passagem de bastão transparente para a equipe humana sempre que necessário.
+- **Painel de Métricas e Relatórios**: Visualização de volume de atendimentos, conversões, horários de pico e desempenho.
+
+## Segmentos Atendidos
+- **Clínicas e Consultórios**: Agendamento de consultas e exames, confirmações, preparos e pós-atendimento.
+- **Salões de Beleza e Estética**: Marcação de horários, pacotes, lembretes de retorno e promoções.
+- **Comércio e E-commerce**: Atendimento pré e pós-venda, dúvidas sobre produtos, prazos e rastreio.
+- **Prestadores de Serviços e Consultorias**: Qualificação de clientes, envio de propostas e follow-up de orçamentos.
+- **Imobiliárias e Concessionárias**: Triagem inicial de perfil, agendamento de visitas e envio de catálogos.
+
+## Links e Páginas
+- [Página Inicial](https://uzila.com.br/): Apresentação da plataforma, recursos, depoimentos, casos de uso e calculadora de ROI.
+- [Contato e Demonstração](https://uzila.com.br/contato): Solicitação de demonstração personalizada e canal direto com a equipe Uzila.
+- [Política de Privacidade](https://uzila.com.br/privacidade): Termos de privacidade, tratamento de dados (LGPD) e segurança da informação.
+
+## Contato e Canais Oficiais
+- **Website**: https://uzila.com.br
+- **WhatsApp**: +55 (21) 96650-3107 (https://wa.me/5521966503107)
+- **E-mail**: contato@uzila.com.br
+- **Instagram**: https://instagram.com/uzila.ia (@uzila.ia)

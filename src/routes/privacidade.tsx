@@ -4,23 +4,24 @@ import { Footer } from "@/components/site/Footer";
 import { WhatsAppFab } from "@/components/site/WhatsAppFab";
 import { EMAIL } from "@/lib/site";
 
+const TITLE = "Política de Privacidade — Uzila";
+const DESCRIPTION =
+  "Conheça a política de privacidade da Uzila e saiba como tratamos com segurança os dados pessoais de clientes e atendimentos no WhatsApp em conformidade com a LGPD.";
+
 export const Route = createFileRoute("/privacidade")({
   head: () => ({
     meta: [
-      { title: "Política de Privacidade — Uzila" },
-      {
-        name: "description",
-        content:
-          "Saiba como a Uzila coleta, utiliza e protege os dados pessoais de quem entra em contato com a nossa plataforma de atendimento por WhatsApp.",
-      },
-      { property: "og:title", content: "Política de Privacidade — Uzila" },
-      {
-        property: "og:description",
-        content: "Como a Uzila coleta, utiliza e protege os dados dos seus clientes.",
-      },
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://uzila.com.br/privacidade" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
     ],
+    links: [{ rel: "canonical", href: "https://uzila.com.br/privacidade" }],
   }),
   component: Privacidade,
 });

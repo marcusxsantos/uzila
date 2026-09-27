@@ -13,23 +13,24 @@ import {
   WHATSAPP_LINK,
 } from "@/lib/site";
 
+const TITLE = "Contato e Demonstração — Fale com a Uzila";
+const DESCRIPTION =
+  "Solicite uma demonstração da Uzila e veja como a nossa IA de atendimento no WhatsApp atende 24h, realiza agendamentos e recupera vendas da sua empresa.";
+
 export const Route = createFileRoute("/contato")({
   head: () => ({
     meta: [
-      { title: "Contato — Fale com a Uzila" },
-      {
-        name: "description",
-        content:
-          "Solicite uma demonstração da Uzila. Fale com nosso time pelo WhatsApp (21) 96650-3707 ou envie sua mensagem pelo formulário.",
-      },
-      { property: "og:title", content: "Contato — Fale com a Uzila" },
-      {
-        property: "og:description",
-        content: "Agende uma demonstração da IA de atendimento no WhatsApp da Uzila.",
-      },
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://uzila.com.br/contato" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
     ],
+    links: [{ rel: "canonical", href: "https://uzila.com.br/contato" }],
   }),
   component: Contato,
 });
