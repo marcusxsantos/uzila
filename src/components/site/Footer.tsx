@@ -113,7 +113,7 @@ export function Footer() {
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
           <p>© {new Date().getFullYear()} Uzila. Todos os direitos reservados.</p>
-          <Link to="/privacidade" className="transition-colors hover:text-primary">
+          <Link to="/politica-privacidade" className="transition-colors hover:text-primary">
             Política de privacidade
           </Link>
         </div>

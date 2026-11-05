@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LOGO_URL, WHATSAPP_LINK } from "@/lib/site";
@@ -14,9 +14,11 @@ const links = [
   { label: "FAQ", href: "/#faq" },
 ];
 
-export function Header() {
+export function Header({ solid }: { solid?: boolean } = {}) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isSolid = solid ?? (pathname !== "/" || scrolled);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -29,7 +31,7 @@ export function Header() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled ? "border-b border-border bg-background/85 backdrop-blur-xl" : "bg-transparent",
+        isSolid ? "border-b border-border bg-background/85 backdrop-blur-xl" : "bg-transparent",
       )}
     >
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6 lg:px-8">
@@ -45,7 +47,7 @@ export function Header() {
             <span
               className={cn(
                 "text-xl font-bold tracking-tight transition-colors duration-300 sm:text-2xl",
-                scrolled ? "text-foreground" : "text-primary-foreground",
+                isSolid ? "text-foreground" : "text-primary-foreground",
               )}
             >
               Uzila
@@ -53,7 +55,7 @@ export function Header() {
             <span
               className={cn(
                 "text-[11px] font-medium transition-colors duration-300 sm:text-xs",
-                scrolled ? "text-muted-foreground" : "text-primary-foreground/70",
+                isSolid ? "text-muted-foreground" : "text-primary-foreground/70",
               )}
             >
               Multiplique tempo. Amplifique propósito.
