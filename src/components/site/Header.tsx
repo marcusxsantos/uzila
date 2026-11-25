@@ -11,6 +11,7 @@ const links = [
   { label: "Soluções", href: "/#solucoes" },
   { label: "Benefícios", href: "/#beneficios" },
   { label: "Casos de uso", href: "/#casos-de-uso" },
+  { label: "Planos", href: "/#planos" },
   { label: "FAQ", href: "/#faq" },
 ];
 

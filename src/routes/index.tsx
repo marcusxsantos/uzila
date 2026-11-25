@@ -16,6 +16,7 @@ import {
   Gauge,
   Heart,
   HeartPulse,
+  HelpCircle,
   Layers,
   LineChart,
   Lock,
@@ -25,9 +26,11 @@ import {
   PlugZap,
   Quote,
   Repeat,
+  Rocket,
   Scissors,
   ShieldCheck,
   Sparkles,
+  Star,
   Stethoscope,
   Store,
   Target,
@@ -50,7 +53,7 @@ import { HeroVideo } from "@/components/site/HeroVideo";
 import { RotatingHeadline } from "@/components/site/RotatingHeadline";
 import { CountUp } from "@/components/site/CountUp";
 import { ContactForm } from "@/components/site/ContactForm";
-import { WHATSAPP_LINK } from "@/lib/site";
+import { WHATSAPP_LINK, WHATSAPP_NUMBER } from "@/lib/site";
 
 const TITLE = "Uzila — IA de atendimento no WhatsApp: responda, agende e venda mais";
 const DESCRIPTION =
@@ -376,8 +379,98 @@ const faqs = [
     a: "Você recebe um resumo diário com faturamento, atendimentos e conversões, além do histórico completo de cada conversa para consultar quando precisar.",
   },
   {
+    q: "Como funcionam os planos e a contratação?",
+    a: "Oferecemos três planos pensados para o tamanho do seu negócio: Essencial (a partir de R$ 149/mês), Profissional (a partir de R$ 327/mês) e Avançado (a partir de R$ 547/mês). Todos incluem atendimento com mensagens ilimitadas (uso justo). A implantação é feita sob medida pela nossa equipe.",
+  },
+  {
     q: "Serve para o meu segmento?",
     a: "A Uzila atende negócios que vendem e agendam pelo WhatsApp: clínicas, consultórios, salões, lojas, escritórios e prestadores de serviço. Se o seu segmento não está na lista, fale com a gente — avaliamos o caso.",
+  },
+];
+
+const idealSegments = [
+  "Salões e barbearias",
+  "Clínicas e consultórios",
+  "Estúdios",
+  "Prestadores de serviço",
+  "Escritórios",
+  "Lojas",
+];
+
+const plans = [
+  {
+    id: "essencial",
+    name: "Essencial",
+    icon: CheckCircle2,
+    badge: "Até 2 atendentes",
+    price: "149",
+    period: "/mês",
+    pricePrefix: "a partir de",
+    highlight: "Menos de R$ 5 por dia para nunca mais perder um cliente",
+    target: "Para profissionais autônomos ou negócios com até 2 atendentes",
+    popular: false,
+    plusLabel: null,
+    features: [
+      "Atendimento com IA 24h, 7 dias por semana, no tom de voz do seu negócio",
+      "Catálogo de serviços e produtos com imagens, enviado para clientes novos",
+      "Agendamento, remarcação e cancelamento pelo WhatsApp",
+      "Integração com Google Agenda (agendamentos confirmados ficam destacados)",
+      "Sugestão de horários livres e encaixe quando o horário está ocupado",
+      "Agendamento para mais de uma pessoa no mesmo contato",
+      "Confirmação automática 24h antes do horário (menos faltas)",
+      "Cobrança de sinal via PIX com recebimento do comprovante pelo WhatsApp",
+      "Pedidos fora do expediente registrados, com aviso para você",
+      "Filtro de robôs e números de outras empresas",
+      "Envio seguro, com proteção contra bloqueio do seu WhatsApp",
+      "Painel de gestão direto no seu WhatsApp: agendar, bloquear horários e fechar o dia",
+      "Resumo diário, semanal e mensal com faturamento",
+    ],
+    ctaText: "Escolher Essencial",
+    ctaMessage: "Olá! Gostaria de saber mais e contratar o plano Essencial da Uzila.",
+  },
+  {
+    id: "profissional",
+    name: "Profissional",
+    icon: Rocket,
+    badge: "Mais Popular",
+    price: "327",
+    period: "/mês",
+    pricePrefix: "a partir de",
+    highlight: "Captura de leads quentes, follow-up e campanhas mensais",
+    target: "Para negócios a partir de 3 atendentes ou profissionais",
+    popular: true,
+    plusLabel: "Tudo do Essencial, mais:",
+    features: [
+      "A partir de 3 atendentes ou profissionais",
+      "Captura de leads quentes: veja no painel quem demonstrou interesse e ainda não agendou ou comprou",
+      "Follow-up automático com quem não respondeu",
+      "1 campanha por mês para sua base de clientes",
+      "Painel de indicadores (atendimentos, vendas, clientes novos x recorrentes)",
+    ],
+    ctaText: "Escolher Profissional",
+    ctaMessage: "Olá! Gostaria de saber mais e contratar o plano Profissional da Uzila.",
+  },
+  {
+    id: "avancado",
+    name: "Avançado",
+    icon: Star,
+    badge: "Solução Completa",
+    price: "547",
+    period: "/mês",
+    pricePrefix: "a partir de",
+    highlight: "Automações customizadas, integrações e gestão multiloja",
+    target: "Para redes, franquias ou operações com regras sob medida",
+    popular: false,
+    plusLabel: "Tudo do Profissional, mais:",
+    features: [
+      "Automações personalizadas para o seu negócio",
+      "Integrações com outros sistemas",
+      "Mais campanhas por mês",
+      "Gestão de mais de uma unidade ou número de WhatsApp em um painel central",
+      "Suporte prioritário",
+    ],
+    ctaText: "Escolher Avançado",
+    ctaMessage: "Olá! Gostaria de saber mais e contratar o plano Avançado da Uzila.",
   },
 ];
 
@@ -868,7 +961,233 @@ function Home() {
           </div>
         </section>
 
-        {/* 13. FAQ */}
+        {/* 13. PLANOS E PREÇOS */}
+        <section id="planos" className="scroll-mt-24 py-20 sm:py-28">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <Reveal className="mx-auto max-w-3xl text-center">
+              <span className="inline-flex items-center gap-2 rounded-full bg-primary-soft px-4 py-1.5 text-xs font-semibold text-primary">
+                <Sparkles className="h-3.5 w-3.5" />
+                Investimento transparente
+              </span>
+              <h2 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+                Conheça nossos planos
+              </h2>
+              <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+                A Uzila é uma atendente com IA para o WhatsApp do seu negócio: conversa com seus clientes 24h por dia, tira dúvidas, agenda horários e acompanha cada contato, sem “digite 1, digite 2”.
+              </p>
+              <p className="mt-3 text-sm font-semibold text-foreground sm:text-base">
+                Enquanto você atende, a Uzila responde. Nenhum cliente fica sem resposta, nem de madrugada, nem no fim de semana.
+              </p>
+
+              {/* Segmentos ideais */}
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs">
+                <span className="font-medium text-muted-foreground">
+                  Ideal para quem atende e agenda pelo WhatsApp:
+                </span>
+                {idealSegments.map((segment) => (
+                  <span
+                    key={segment}
+                    className="rounded-full border border-border bg-card px-3 py-1 font-medium text-foreground shadow-2xs"
+                  >
+                    {segment}
+                  </span>
+                ))}
+              </div>
+            </Reveal>
+
+            {/* Grid dos Planos */}
+            <div className="mt-16 grid gap-8 lg:grid-cols-3 lg:items-stretch">
+              {plans.map((plan, index) => {
+                const Icon = plan.icon;
+                const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(plan.ctaMessage)}`;
+
+                return (
+                  <Reveal
+                    key={plan.id}
+                    delay={index * 100}
+                    className={plan.popular ? "lg:-mt-4 lg:mb-[-1rem]" : ""}
+                  >
+                    <div
+                      className={`relative flex h-full flex-col justify-between rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1 ${
+                        plan.popular
+                          ? "border-2 border-primary bg-card shadow-lift ring-4 ring-primary/10"
+                          : "card-surface border border-border"
+                      }`}
+                    >
+                      {plan.popular && (
+                        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-gradient-brand px-4 py-1 text-xs font-bold text-primary-foreground shadow-soft flex items-center gap-1.5">
+                          <Rocket className="h-3.5 w-3.5" />
+                          {plan.badge}
+                        </div>
+                      )}
+
+                      <div>
+                        {/* Header do Card */}
+                        <div className="flex items-center justify-between gap-3">
+                          <div className="flex items-center gap-2.5">
+                            <div
+                              className={`grid h-10 w-10 place-items-center rounded-2xl ${
+                                plan.popular
+                                  ? "bg-gradient-brand text-primary-foreground shadow-soft"
+                                  : "bg-primary-soft text-primary"
+                              }`}
+                            >
+                              <Icon className="h-5 w-5" />
+                            </div>
+                            <h3 className="text-2xl font-bold tracking-tight text-foreground">
+                              {plan.name}
+                            </h3>
+                          </div>
+                          {!plan.popular && (
+                            <span className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
+                              {plan.badge}
+                            </span>
+                          )}
+                        </div>
+
+                        <p className="mt-4 text-xs font-semibold text-primary sm:text-sm">
+                          {plan.highlight}
+                        </p>
+                        <p className="mt-1 text-xs text-muted-foreground">{plan.target}</p>
+
+                        {/* Preço */}
+                        <div className="mt-6 border-y border-border/80 py-5">
+                          <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                            {plan.pricePrefix}
+                          </span>
+                          <div className="mt-1 flex items-baseline gap-1">
+                            <span className="text-2xl font-bold text-foreground">R$</span>
+                            <span className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
+                              {plan.price}
+                            </span>
+                            <span className="text-sm font-medium text-muted-foreground">
+                              {plan.period}
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Lista de Features */}
+                        <div className="mt-6">
+                          {plan.plusLabel && (
+                            <p className="mb-3 text-xs font-bold uppercase tracking-wider text-primary">
+                              {plan.plusLabel}
+                            </p>
+                          )}
+                          <ul className="space-y-3">
+                            {plan.features.map((feature) => (
+                              <li key={feature} className="flex items-start gap-2.5 text-sm">
+                                <CheckCircle2
+                                  className={`mt-0.5 h-4 w-4 shrink-0 ${
+                                    plan.popular ? "text-primary" : "text-brand-blue"
+                                  }`}
+                                />
+                                <span className="leading-snug text-foreground/90">{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+
+                      {/* Botão CTA */}
+                      <div className="mt-8 pt-4">
+                        <Button
+                          asChild
+                          size="lg"
+                          variant={plan.popular ? "hero" : "outline"}
+                          className="w-full rounded-full"
+                        >
+                          <a href={whatsappUrl} target="_blank" rel="noreferrer">
+                            {plan.ctaText}
+                            <ArrowRight className="h-4 w-4" />
+                          </a>
+                        </Button>
+                      </div>
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
+
+            {/* Informações complementares */}
+            <div className="mt-12 grid gap-4 sm:grid-cols-3">
+              <Reveal delay={100}>
+                <div className="card-surface flex h-full items-start gap-3.5 p-5">
+                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-primary-soft text-primary">
+                    <MessageSquare className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-foreground">Mensagens ilimitadas</h3>
+                    <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                      Atendimento ilimitado em todos os planos (política de uso justo).
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+
+              <Reveal delay={180}>
+                <div className="card-surface flex h-full items-start gap-3.5 p-5">
+                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-primary-soft text-primary">
+                    <Sparkles className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-foreground">Adicional: Criação de site</h3>
+                    <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                      Contratado à parte: site institucional moderno para fortalecer sua presença online.
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+
+              <Reveal delay={260}>
+                <div className="card-surface flex h-full items-start gap-3.5 p-5">
+                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-primary-soft text-primary">
+                    <ShieldCheck className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-foreground">Implantação completa</h3>
+                    <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                      Valor sob consulta, com configuração assistida e regras sob medida feitas pela nossa equipe.
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+
+            {/* Consultor interativo / Indicação de plano */}
+            <Reveal delay={200} className="mt-10">
+              <div className="relative overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-br from-primary-soft/90 via-card to-accent/30 p-6 sm:p-8">
+                <div className="flex flex-col items-center justify-between gap-6 text-center sm:flex-row sm:text-left">
+                  <div className="max-w-2xl">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary">
+                      <HelpCircle className="h-4 w-4" />
+                      Orientação personalizada
+                    </span>
+                    <h3 className="mt-2 text-xl font-bold text-foreground sm:text-2xl">
+                      Quer que eu te indique o plano ideal?
+                    </h3>
+                    <p className="mt-2 text-sm text-muted-foreground sm:text-base">
+                      Me conta qual é o seu negócio e quantas pessoas atendem os clientes que indicamos o plano sob medida sem compromisso.
+                    </p>
+                  </div>
+                  <Button asChild size="lg" variant="whatsapp" className="shrink-0 shadow-soft">
+                    <a
+                      href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                        "Olá! Gostaria de uma indicação do melhor plano da Uzila para o meu negócio. Meu negócio é: "
+                      )}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <MessageSquare className="h-4 w-4 mr-2" />
+                      Indicar meu plano ideal
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* 14. FAQ */}
         <section id="faq" className="scroll-mt-24 bg-muted/50 py-20 sm:py-28">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
             <Reveal className="text-center">
